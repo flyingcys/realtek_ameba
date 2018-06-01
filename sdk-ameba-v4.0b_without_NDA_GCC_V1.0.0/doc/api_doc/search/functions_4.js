@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['flash_5fburst_5fread',['flash_burst_read',['../group__flash.html#ga592e3960781eca38eae47db9b28df223',1,'flash_api.h']]],
+  ['flash_5fburst_5fwrite',['flash_burst_write',['../group__flash.html#ga9be5e145f4d318d6672de6943e766829',1,'flash_api.h']]],
+  ['flash_5ferase_5fblock',['flash_erase_block',['../group__flash.html#gad18bac4a83b344c97c44bc527dd27c33',1,'flash_api.h']]],
+  ['flash_5ferase_5fchip',['flash_erase_chip',['../group__flash.html#ga95d0a0924c4be8345169940bf90ed321',1,'flash_api.h']]],
+  ['flash_5ferase_5fsector',['flash_erase_sector',['../group__flash.html#gae99567fff68ce173f22692b16255ac95',1,'flash_api.h']]],
+  ['flash_5fget_5fextend_5faddr',['flash_get_extend_addr',['../group__flash.html#ga029b2c59c24bf1733be9a1b5c2c63160',1,'flash_api.h']]],
+  ['flash_5fget_5fstatus',['flash_get_status',['../group__flash.html#ga1c5ccb2f6a0f9cec2dc139894ecb24ec',1,'flash_api.h']]],
+  ['flash_5fread_5fid',['flash_read_id',['../group__flash.html#ga053004871fb4a0f1ca3204cd7cc72177',1,'flash_api.h']]],
+  ['flash_5fread_5funique_5fid',['flash_read_unique_id',['../group__flash.html#ga50ab8970fa850369baa6065a29e0f3b9',1,'flash_api.h']]],
+  ['flash_5fread_5fword',['flash_read_word',['../group__flash.html#gad5e4c414bb37e27b30bf846b6a174bec',1,'flash_api.h']]],
+  ['flash_5freset_5fstatus',['flash_reset_status',['../group__flash.html#gad990aea38eef9a60af5fb6f2657b7c4a',1,'flash_api.h']]],
+  ['flash_5fset_5fextend_5faddr',['flash_set_extend_addr',['../group__flash.html#ga4fed0728cd2ad93b8eb8e4418fda0c22',1,'flash_api.h']]],
+  ['flash_5fset_5fstatus',['flash_set_status',['../group__flash.html#ga8a41e95c78069e69c1cd4a1ebd83de6e',1,'flash_api.h']]],
+  ['flash_5fstream_5fread',['flash_stream_read',['../group__flash.html#gac1b58fa05ce302a10f7ce9ba6524c169',1,'flash_api.h']]],
+  ['flash_5fstream_5fwrite',['flash_stream_write',['../group__flash.html#ga025166692c958e48e2ef824c371b722b',1,'flash_api.h']]],
+  ['flash_5fwrite_5fprotect',['flash_write_protect',['../group__flash.html#gadac33ed905a07a2cb15746cd9b4e08d3',1,'flash_api.h']]],
+  ['flash_5fwrite_5fword',['flash_write_word',['../group__flash.html#gaef8b6bb9e52c26badfb9f8c644cf2633',1,'flash_api.h']]]
+];

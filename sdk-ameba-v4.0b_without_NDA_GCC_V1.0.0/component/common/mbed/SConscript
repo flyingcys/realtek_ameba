@@ -1,0 +1,42 @@
+import rtconfig
+Import('RTT_ROOT')
+from building import *
+
+# get current directory
+cwd = GetCurrentDir()
+
+# The set of source files associated with this SConscript file.
+src = Split('''
+targets/hal/rtl8711b/analogin_api.c
+targets/hal/rtl8711b/dma_api.c
+targets/hal/rtl8711b/efuse_api.c
+targets/hal/rtl8711b/flash_api.c
+targets/hal/rtl8711b/gpio_api.c
+targets/hal/rtl8711b/gpio_irq_api.c
+targets/hal/rtl8711b/i2c_api.c
+targets/hal/rtl8711b/i2s_api.c
+targets/hal/rtl8711b/nfc_api.c
+targets/hal/rtl8711b/pinmap.c
+targets/hal/rtl8711b/pinmap_common.c
+targets/hal/rtl8711b/port_api.c
+targets/hal/rtl8711b/pwmout_api.c
+targets/hal/rtl8711b/rtc_api.c
+targets/hal/rtl8711b/serial_api.c
+targets/hal/rtl8711b/sleep.c
+targets/hal/rtl8711b/spi_api.c
+targets/hal/rtl8711b/sys_api.c
+targets/hal/rtl8711b/timer_api.c
+targets/hal/rtl8711b/us_ticker.c
+targets/hal/rtl8711b/us_ticker_api.c
+targets/hal/rtl8711b/wait_api.c
+targets/hal/rtl8711b/wdt_api.c
+''')
+
+path = [cwd + '/targets/hal/rtl8711b',
+	cwd + '/hal',
+	cwd + '/hal_ext',
+	cwd + '/api']
+
+group = DefineGroup('mbed', src, depend = [], CPPPATH = path,)
+
+Return('group')
