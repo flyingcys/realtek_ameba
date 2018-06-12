@@ -23,6 +23,8 @@ static rt_uint8_t main_stack[RT_MAIN_THREAD_STACK_SIZE];
 struct rt_thread main_thread;
 #endif
 
+extern int amebaz_wifi_start(void);
+
 /* the system main thread */
 void main_thread_entry(void *parameter)
 {
@@ -33,6 +35,9 @@ void main_thread_entry(void *parameter)
 #ifdef RT_USING_COMPONENTS_INIT
     rt_components_init();
 #endif
+
+    if(amebaz_wifi_start() != RT_EOK)
+        rt_kprintf("amebaz_wifi_start failed...\n");
 
     /* invoke system main function */
 #if defined (__CC_ARM)

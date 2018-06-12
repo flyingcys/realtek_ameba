@@ -1825,6 +1825,10 @@ void wifi_autoreconnect_hdl(rtw_security_t security_type,
 	param.password_len = password_len;
 	param.key_id = key_id;
 //	xTaskCreate(wifi_autoreconnect_thread, (const char *)"wifi_autoreconnect", 512, &param, tskIDLE_PRIORITY + 1, NULL);
+
+//    rt_thread_t tid =  rt_thread_create("autoconn", wifi_autoreconnect_thread, &param, 2048, RT_THREAD_PRIORITY_MAX - 2, 20);
+//    if(tid != RT_NULL)
+//        rt_thread_startup(tid);
 }
 
 int wifi_config_autoreconnect(__u8 mode, __u8 retry_times, __u16 timeout)
