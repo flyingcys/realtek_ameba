@@ -30,8 +30,7 @@ void restore_flags(void)
 
 void cli(void)
 {
-//    rt_hw_interrupt_disable();
-//	taskDISABLE_INTERRUPTS();
+    rt_hw_interrupt_disable();
 }
 
 /* Not needed on 64bit architectures */
@@ -72,7 +71,6 @@ static unsigned int __div64_32(u64 *n, unsigned int base)
 
 u8* _rtthread_malloc(u32 sz)
 {
-//	return pvPortMalloc(sz);
     u8 *pbuf = (u8 *)rt_malloc(sz);
 
     return pbuf;
@@ -114,7 +112,6 @@ static void _rtthread_memset(void *pbuf, int c, u32 sz)
 
 static void _rtthread_init_sema(_sema *sema, int init_val)
 {
-//    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
     char name[RT_NAME_MAX];
 
     memset(name, 0, RT_NAME_MAX);
@@ -297,25 +294,21 @@ static void _rtthread_spinunlock_irqsave(_lock *plock, _irqL *irqL)
 
 static int _rtthread_init_xqueue( _xqueue* queue, const char* name, u32 message_size, u32 number_of_messages )
 {
-    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
     return -1;
 }
 
 static int _rtthread_push_to_xqueue( _xqueue* queue, void* message, u32 timeout_ms )
 {
-    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
     return -1;
 }
 
 static int _rtthread_pop_from_xqueue( _xqueue* queue, void* message, u32 timeout_ms )
 {
-    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
     return -1;
 }
 
 static int _rtthread_deinit_xqueue( _xqueue* queue )
 {
-    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
     return -1;
 }
 
@@ -541,8 +534,8 @@ static int _rtthread_get_random_bytes(void *buf, size_t len)
 static u32 _rtthread_GetFreeHeapSize(void)
 {
     return 16 * 1024;
-//	return (u32)xPortGetFreeHeapSize();
 }
+
 #ifndef RT_USING_LWIP
 #define     RT_LWIP_TCPTHREAD_PRIORITY       10
 #endif
@@ -609,99 +602,6 @@ static int _rtthread_create_task(struct task_struct *ptask, const char *name,
     }
 
     return RT_TRUE;
-#if 0
-	thread_func_t task_func = NULL;
-	void *task_ctx = NULL;
-	rt_err_t ret = RT_EOK;
-
-    rt_kprintf("name:%s stack_size:%d priority:%d\n", name, stack_size, priority);
-	ptask->task_name = name;
-	ptask->blocked = 0;
-	ptask->callback_running = 0;
-	
-	_rtthread_init_sema(&ptask->wakeup_sema, 0);
-	_rtthread_init_sema(&ptask->terminate_sema, 0);
-	//rtw_init_queue(&wq->work_queue);
-
-	if(func){
-		task_func = func;
-		task_ctx = thctx;
-	}
-	//else{
-	//	task_func = rtthread_wq_thread_handler;
-	//	task_ctx = wq;
-	//}
-
-//	priority += tskIDLE_PRIORITY + PRIORITIE_OFFSET;
-    priority += RT_LWIP_TCPTHREAD_PRIORITY;
-    if(priority >= RT_THREAD_PRIORITY_MAX)
-        priority = RT_THREAD_PRIORITY_MAX - 1;
-
-    rt_kprintf("priority:%d\n", priority);
-	if(rtw_if_wifi_thread(name) == 0){
-
-#if CONFIG_USE_TCM_HEAP
-		void *stack_addr = tcm_heap_malloc(stack_size*sizeof(int));
-		//void *stack_addr = rtw_malloc(stack_size*sizeof(int));
-		if(stack_addr == NULL){
-			DBG_INFO("Out of TCM heap in \"%s\" ", ptask->task_name);
-		}
-		ret = xTaskGenericCreate(
-				task_func,
-				(const char *)name,
-				stack_size,
-				task_ctx,
-				priority,
-				&ptask->task,
-				stack_addr,
-				NULL);
-#else	
-        ptask->task = rt_thread_create(name, task_func, task_ctx, stack_size * 4, priority, 10);
-        if(ptask->task != NULL)
-            ret = rt_thread_startup(ptask->task);
-        else
-        {
-            rt_kprintf("[error]:rt_thread_create failed...\n");
-            ret = RT_ENOMEM;
-        }
-#if 0
-		ret = xTaskCreate(
-				task_func,
-				(const char *)name,
-				stack_size,
-				task_ctx,
-				priority,
-				&ptask->task);
-#endif
-#endif
-	}
-	else{
-        ptask->task = rt_thread_create(name, task_func, task_ctx, stack_size * 4, priority, 20);
-        if(ptask->task != NULL)
-            ret = rt_thread_startup(ptask->task);
-        else
-        {
-            rt_kprintf("[error]:rt_thread_create failed...\n");
-            ret = RT_ENOMEM;
-        }
-#if 0
-		ret = xTaskCreate(
-				task_func,
-				(const char *)name,
-				stack_size,
-				task_ctx,
-				priority,
-				&ptask->task);
-#endif
-	}
-	if(ret != RT_EOK)
-    {
-		rt_kprintf("Create Task \"%s\" Failed! ret=%d\n", ptask->task_name, ret);
-	}
-	
-	rt_kprintf("Create Task \"%s\" handle:%p\n", ptask->task_name, ptask->task);
-	return ret;
-#endif
 }
 	
 static void _rtthread_delete_task(struct task_struct *ptask)
@@ -733,13 +633,12 @@ void _rtthread_wakeup_task(struct task_struct *ptask)
 
 static void _rtthread_thread_enter(char *name)
 {
-//	rt_kprintf("RTKTHREAD %s\n", name);
+	rt_kprintf("RTKTHREAD %s\n", name);
 }
 
 static void _rtthread_thread_exit(void)
 {
-//	rt_kprintf("RTKTHREAD exit %s\n", __FUNCTION__); 
-//	vTaskDelete(NULL); 
+	rt_kprintf("RTKTHREAD exit %s\n", __FUNCTION__); 
 }
 
 _timerHandle _rtthread_timerCreate( const signed char *pcTimerName, 
@@ -748,27 +647,6 @@ _timerHandle _rtthread_timerCreate( const signed char *pcTimerName,
 							  void * pvTimerID, 
 							  TIMER_FUN pxCallbackFunction )
 {
-#if 0
-    rt_uint8_t flag = RT_TIMER_FLAG_SOFT_TIMER;
-    rt_tick_t time;
-
-    if(xTimerPeriodInTicks >= (RT_TICK_MAX / 2))
-        time = RT_TICK_MAX / 2 -1;
-    else
-        time = xTimerPeriodInTicks;
-    
-    if(uxAutoReload == 1)
-        flag |= RT_TIMER_FLAG_PERIODIC;
-    else
-        flag |= RT_TIMER_FLAG_ONE_SHOT;
-    
-    return rt_timer_create(pcTimerName, pxCallbackFunction, pvTimerID, time, flag);
-//	if(xTimerPeriodInTicks == TIMER_MAX_DELAY) {
-//		xTimerPeriodInTicks = portMAX_DELAY;
-//	}
-//	return xTimerCreate((const char *)pcTimerName, xTimerPeriodInTicks, uxAutoReload, pvTimerID, pxCallbackFunction);	
-#endif
-#if 1
     rt_timer_t timer;
     rt_tick_t time;
     rt_uint8_t flag;
@@ -805,7 +683,6 @@ _timerHandle _rtthread_timerCreate( const signed char *pcTimerName,
     }
 
     return (_timerHandle)timer;
-    #endif
 }
 
 u32 _rtthread_timerDelete( _timerHandle xTimer, 
@@ -863,7 +740,7 @@ u32  _rtthread_timerChangePeriod( _timerHandle xTimer,
 }
 void *_rtthread_timerGetID( _timerHandle xTimer )
 {
-    rt_kprintf("[func]:%s [line]:%d\n", __FUNCTION__, __LINE__);
+    return xTimer;
 }
 
 u32  _rtthread_timerStart( _timerHandle xTimer, 
@@ -1094,18 +971,6 @@ const struct osdep_service_ops osdep_service = {
 	_rtthread_wakelock_timeout,		//rtw_wakelock_timeout
 	_rtthread_get_scheduler_state	//rtw_get_scheduler_state
 };
-
-typedef void * TaskHandle_t;
-#if 0
-BaseType_t xTaskGenericCreate( TaskFunction_t pxTaskCode, const char * const pcName, const uint16_t usStackDepth, void * const pvParameters, UBaseType_t uxPriority, TaskHandle_t * const pxCreatedTask, StackType_t * const puxStackBuffer, const MemoryRegion_t * const xRegions )
-{
-
-}
-#endif
-void vTaskDelete( TaskHandle_t xTaskToDelete )
-{
-    
-}
 
 void vTaskDelay( const rt_uint32_t xTicksToDelay )
 {

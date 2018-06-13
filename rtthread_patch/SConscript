@@ -7,7 +7,6 @@ src = Split('''
 	os/rtthread_service.c
 	realtek/8711b/rtl8710b_startup.c
 	realtek/8711b/app_start.c
-	realtek/8711b/mbed/serial_api.c
 	realtek/common/wifi/wifi_conf.c
 	''')
 

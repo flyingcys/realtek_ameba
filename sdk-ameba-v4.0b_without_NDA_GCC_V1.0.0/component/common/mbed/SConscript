@@ -21,6 +21,7 @@ targets/hal/rtl8711b/pinmap_common.c
 targets/hal/rtl8711b/port_api.c
 targets/hal/rtl8711b/pwmout_api.c
 targets/hal/rtl8711b/rtc_api.c
+targets/hal/rtl8711b/serial_api.c
 targets/hal/rtl8711b/sleep.c
 targets/hal/rtl8711b/spi_api.c
 targets/hal/rtl8711b/sys_api.c
