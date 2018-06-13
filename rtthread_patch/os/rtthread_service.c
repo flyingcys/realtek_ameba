@@ -633,12 +633,12 @@ void _rtthread_wakeup_task(struct task_struct *ptask)
 
 static void _rtthread_thread_enter(char *name)
 {
-	rt_kprintf("RTKTHREAD %s\n", name);
+//	rt_kprintf("RTKTHREAD %s\n", name);
 }
 
 static void _rtthread_thread_exit(void)
 {
-	rt_kprintf("RTKTHREAD exit %s\n", __FUNCTION__); 
+//	rt_kprintf("RTKTHREAD exit %s\n", __FUNCTION__); 
 }
 
 _timerHandle _rtthread_timerCreate( const signed char *pcTimerName, 
