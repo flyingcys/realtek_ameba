@@ -1023,8 +1023,8 @@ int wifi_off(void)
 		return 0;
 	}
 #if CONFIG_LWIP_LAYER
-	dhcps_deinit();
-	LwIP_DHCP(0, DHCP_STOP);
+//	dhcps_deinit();
+//	LwIP_DHCP(0, DHCP_STOP);
 	netif_set_down(&xnetif[0]);
 	netif_set_down(&xnetif[1]);
 #endif
