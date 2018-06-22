@@ -11,17 +11,17 @@
 @echo ^<flash_board^> >> tmp.board
 @echo   ^<pass^>    >> tmp.board
 @echo     ^<range^>CODE 0x8000000 0x8004fff^</range^>    >> tmp.board
-@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board
+@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board
 @echo     ^<abs_offset^>0x00000000^</abs_offset^>    >> tmp.board
 @echo   ^</pass^>    >> tmp.board
 @echo   ^<pass^> >> tmp.board
 @echo     ^<range^>CODE 0x800b020 0x807ffff^</range^> >> tmp.board
-@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board
+@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board
 @echo     ^<abs_offset^>0xb020^</abs_offset^>  >> tmp.board
 @echo   ^</pass^> >> tmp.board
 @echo   ^<pass^>    >> tmp.board
 @echo     ^<range^>CODE %1 0x%ram_end%^</range^>    >> tmp.board
-@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board  
+@echo     ^<loader^>$PROJ_DIR$\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash^</loader^>    >> tmp.board  
 @echo     ^<abs_offset^>0xb000^</abs_offset^>  >> tmp.board  
 @echo     ^<args^>--concat^</args^>  >> tmp.board  
 @echo   ^</pass^>    >> tmp.board

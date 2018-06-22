@@ -2,13 +2,13 @@
 
 <flash_board>
   <pass>
-    <loader>$PROJ_DIR$\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash</loader>
+    <loader>$PROJ_DIR$\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash</loader>
     <range>CODE 0x8000020 0x8003fff</range>
     <abs_offset>0x20</abs_offset>
     <args>--boot   </args>
   </pass>
   <pass>
-    <loader>$PROJ_DIR$\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash</loader>
+    <loader>$PROJ_DIR$\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\flashloader\FlashRTL8195aMP.flash</loader>
     <range>CODE 0x10002000 0x10004fff</range>
     <abs_offset>0x0</abs_offset>
     <args>--concat   

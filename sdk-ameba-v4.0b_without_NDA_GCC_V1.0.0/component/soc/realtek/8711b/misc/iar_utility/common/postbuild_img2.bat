@@ -1,6 +1,6 @@
 cd /D %2
-set tooldir=%2\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\tools
-set libdir=%2\packages\realtek_ameba\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\bsp
+set tooldir=%2\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\iar_utility\common\tools
+set libdir=%2\packages\realtek_ameba-latest\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\component\soc\realtek\8711b\misc\bsp
 set ota_bin_ver=0x%date:~0,4%%date:~5,2%%date:~8,2%
 
 ::echo input1=%1 >tmp.txt
