@@ -26,11 +26,6 @@ if GetDepend(['RT_USING_LWIP']):
 		cwd + '/../network/ssl/polarssl-1.3.8/include',
 		cwd + '/../network/ssl/ssl_ram_map/rom']
 
-	if GetDepend('RT_USING_LWIP141'):
-		path += [RTT_ROOT + '/components/net/lwip-1.4.1/src/include/lwip']
-	elif GetDepend('RT_USING_LWIP202'):
-		path += [RTT_ROOT + '/components/net/lwip-2.0.2/src/include/lwip']
-
 group = DefineGroup('ameba_wifi', src, depend = [], CPPPATH = path)
 
 Return('group')

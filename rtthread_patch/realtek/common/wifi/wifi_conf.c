@@ -10,7 +10,7 @@
 #include <wifi/wifi_conf.h>
 #include <wifi/wifi_util.h>
 #include <wifi/wifi_ind.h>
-#include "tcpip.h"
+#include "lwip/tcpip.h"
 #include <osdep_service.h>
 
 #if CONFIG_EXAMPLE_WLAN_FAST_CONNECT || CONFIG_JD_SMART
@@ -413,6 +413,7 @@ int wifi_connect(
 	u8 wep_pwd[14] = {0};
 
 	if(rtw_join_status & JOIN_SIMPLE_CONFIG || rtw_join_status & JOIN_AIRKISS){
+        printf("%s %d\r\n", __FUNCTION__, __LINE__);
 		return RTW_ERROR;
 	}
 
@@ -534,6 +535,7 @@ int wifi_connect(
 				goto error;
 			} else {
 				if(wifi_is_connected_to_ap( ) != RTW_SUCCESS) {
+                    printf("%s %d\r\n", __FUNCTION__, __LINE__);
 					result = RTW_ERROR;
 					goto error;
 				}
@@ -553,6 +555,7 @@ int wifi_connect(
 				rtw_free(join_result->network_info.password);
 			}
 			if(wifi_is_connected_to_ap( ) != RTW_SUCCESS) {
+                printf("%s %d\r\n", __FUNCTION__, __LINE__);
 				result = RTW_ERROR;
 				goto error;
 			}

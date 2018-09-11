@@ -11,7 +11,9 @@
 #include "build_info.h"
 
 #include <rtthread.h>
+#ifdef RT_USING_LWIP
 #include <wlan_dev.h>
+#endif
 
 #ifndef RT_MAIN_THREAD_STACK_SIZE
 #define RT_MAIN_THREAD_STACK_SIZE     2048
@@ -24,7 +26,9 @@ static rt_uint8_t main_stack[RT_MAIN_THREAD_STACK_SIZE];
 struct rt_thread main_thread;
 #endif
 
+#ifdef RT_USING_LWIP
 extern int amebaz_wifi_init(rt_wlan_mode_t mode);
+#endif
 
 /* the system main thread */
 void main_thread_entry(void *parameter)
@@ -37,8 +41,10 @@ void main_thread_entry(void *parameter)
     rt_components_init();
 #endif
 
+#ifdef RT_USING_LWIP
     if(amebaz_wifi_init(WIFI_STATION) != RT_EOK)
         rt_kprintf("amebaz_wifi_start failed...\n");
+#endif
 
     /* invoke system main function */
 #if defined (__CC_ARM)
