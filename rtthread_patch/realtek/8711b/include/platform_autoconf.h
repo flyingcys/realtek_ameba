@@ -53,7 +53,7 @@
 /*
  * < CONFIG OS 
  */
-#define CONFIG_KERNEL 1
+// #define CONFIG_KERNEL 0
 #define PLATFORM_FREERTOS 1
 #undef  PLATFORM_UCOSII
 #undef  PLATFORM_ECOS
