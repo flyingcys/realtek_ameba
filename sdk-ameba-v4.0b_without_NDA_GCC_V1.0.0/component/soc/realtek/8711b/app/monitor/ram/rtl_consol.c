@@ -297,6 +297,7 @@ UartLogCmdExecuteRam(
 	return FALSE;
 }
 
+#ifdef CONFIG_KERNEL
 
 VOID
 RtlConsolTaskRam(
@@ -361,6 +362,7 @@ RtlConsolTaskRam(
 		}
 	}while(1);
 }
+#endif
 
 /**
   * @brief    Set UartLog Baud Rate use baudrate val.

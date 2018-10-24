@@ -11,6 +11,8 @@
 #include "build_info.h"
 #include "rtconfig.h"
 
+extern int rtthread_startup(void);
+
 void APP_Start(void)
 {
 #if CONFIG_SOC_PS_MODULE
