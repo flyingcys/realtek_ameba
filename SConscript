@@ -92,6 +92,6 @@ elif rtconfig.CROSS_TOOL == 'iar':
 	libpath = [cwd + '/sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0/component/soc/realtek/8711b/misc/bsp/lib/common/IAR']
 	cppdefines += ['__IEEE_LITTLE_ENDIAN']
 
-group = DefineGroup('Libraries', src, depend = [''], CPPPATH = cpppath, CPPDEFINES = cppdefines, LIBS = libs, LIBPATH = libpath)
+group = DefineGroup('amebaz_sdk', src, depend = [''], CPPPATH = cpppath, CPPDEFINES = cppdefines, LIBS = libs, LIBPATH = libpath)
 
 Return('group')
