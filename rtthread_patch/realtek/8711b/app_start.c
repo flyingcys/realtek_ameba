@@ -9,9 +9,13 @@
 
 #include "ameba_soc.h"
 #include "build_info.h"
-#include "rtconfig.h"
+#include "rtthread.h"
 
 extern int rtthread_startup(void);
+
+RT_WEAK void SVC_Handler(void)
+{
+}
 
 void APP_Start(void)
 {
@@ -21,7 +25,7 @@ void APP_Start(void)
 
     extern void PendSV_Handler(void);
     extern void SysTick_Handler(void);
-	InterruptForOSInit((VOID*)NULL,
+	InterruptForOSInit((VOID*)SVC_Handler,
 		(VOID*)PendSV_Handler,
 		(VOID*)SysTick_Handler);
 
